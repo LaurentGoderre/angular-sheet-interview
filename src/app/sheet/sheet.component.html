@@ -1,0 +1,17 @@
+<table>
+  <thead>
+    <td></td>
+    <th *ngFor="let col of [].constructor(cols); let x = index">{{x}}</th>
+  </thead>
+  <tbody>
+    <tr *ngFor="let row of matrix; let rowIndex = index">
+      <th>{{rowIndex}}</th>
+      <td *ngFor="let cell of row; let colIndex = index">
+        <input type="text" id="cel-{{rowIndex}}-{{colIndex}}" name="cel-{{rowIndex}}-{{colIndex}}" [ngModel]="matrix[rowIndex][colIndex]" [value]="1" [ngModelOptions]="{ updateOn: 'blur' }" (ngModelChange)="onEdit($event, rowIndex, colIndex)"/>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+<button (click)="onUndo()" [disabled]="undoQueue.length === 0 ? 'disabled' : ''">Undo</button>
+<button (click)="onRedo()" [disabled]="redoQueue.length === 0 ? 'disabled' : ''">Redo</button>
