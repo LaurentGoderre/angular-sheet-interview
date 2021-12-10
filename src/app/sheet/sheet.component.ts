@@ -26,7 +26,7 @@ export class SheetComponent implements OnInit {
     for (let row = 0; row < this.rows; row++) {
       this.matrix[row] = new Array(this.cols);
       for (let col = 0; col < this.cols; col++) {
-        this.matrix[row][col] = Symbol();
+        // this.matrix[row][col] = Symbol();
       }
     }
   }
