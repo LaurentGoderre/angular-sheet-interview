@@ -43,6 +43,7 @@ export class SheetComponent implements OnInit {
       rowIndex,
       colIndex
     });
+    this.redoQueue.splice(0, this.redoQueue.length);
   }
 
   onUndo(): void {
